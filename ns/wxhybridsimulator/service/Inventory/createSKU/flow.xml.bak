@@ -601,6 +601,9 @@
 
 <MAPDELETE FIELD="/Result;2;1">
 </MAPDELETE>
+
+<MAPDELETE FIELD="/sku;4;0;wxhybridsimulator.doc:inventory">
+</MAPDELETE>
 </MAP>
 </INVOKE>
 </FLOW>
