@@ -206,7 +206,7 @@
   <DATA ENCODING="XMLValues" I18N="true">
 
 <Values version="2.0">
-  <value name="xml">INVOICE</value>
+  <value name="xml">BANK TRANSFER</value>
   <record name="type" javaclass="com.wm.util.Values">
     <value name="node_type">unknown</value>
     <value name="node_subtype">unknown</value>
@@ -222,7 +222,7 @@
     <value name="field_dim">0</value>
     <array name="field_options" type="value" depth="1">
       <value>CASH</value>
-      <value>INVOICE</value>
+      <value>BANK TRANSFER</value>
       <value>CREDITCARD</value>
     </array>
     <value name="nillable">true</value>

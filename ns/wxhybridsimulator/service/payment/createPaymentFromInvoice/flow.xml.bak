@@ -6,7 +6,7 @@
   <!-- nodes -->
 
 <MAP TIMEOUT="" MODE="STANDALONE">
-  <COMMENT></COMMENT>
+  <COMMENT>Map the fields</COMMENT>
   <MAPTARGET>
 
 <Values version="2.0">
@@ -235,7 +235,7 @@
 </MAP>
 
 <INVOKE TIMEOUT="" SERVICE="wxhybridsimulator.service.payment:createPayment" VALIDATE-IN="$none" VALIDATE-OUT="$none">
-  <COMMENT></COMMENT>
+  <COMMENT>UPDATES THE PAYMENT</COMMENT>
 
   <!-- nodes -->
 
@@ -247,7 +247,7 @@
 </INVOKE>
 
 <INVOKE TIMEOUT="" SERVICE="wxhybridsimulator.service.payment:readPayment" VALIDATE-IN="$none" VALIDATE-OUT="$none">
-  <COMMENT></COMMENT>
+  <COMMENT>READS IT BACK AGAIN SO THE ID AND TIMESTAMPS ARE OK</COMMENT>
 
   <!-- nodes -->
 

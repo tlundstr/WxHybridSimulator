@@ -154,7 +154,7 @@ NOTE: Any field that is OPTIONAL, the database will at "INSERT " Creat and Popul
         <value name="field_dim">0</value>
         <array name="field_options" type="value" depth="1">
           <value>CASH</value>
-          <value>INVOICE</value>
+          <value>BANK TRANSFER</value>
           <value>CREDITCARD</value>
         </array>
         <value name="nillable">true</value>
