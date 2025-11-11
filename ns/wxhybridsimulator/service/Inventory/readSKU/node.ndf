@@ -104,9 +104,9 @@
       <value name="modifiable">true</value>
     </record>
   </record>
-  <value name="node_comment">Service that reads all customers
+  <value name="node_comment">Service that reads a SKU
 
-Takes nothing as input and return customers ( and also rowsAffected which indicates how many rows that got read)</value>
+Takes "ID" as input and return SKU ( and also rowsAffected which indicates how many rows that got read)</value>
   <value name="stateless">yes</value>
   <value name="caching">no</value>
   <value name="prefetch">no</value>
