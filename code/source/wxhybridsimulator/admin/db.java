@@ -442,7 +442,8 @@ public final class db
 						while (docCursor.next()) {
 							String key = docCursor.getKey();
 							Object value = docCursor.getValue();
-							fieldsMap.put(key, value);
+							if(value != null && !String.valueOf(value).equals(""))
+								fieldsMap.put(key, value);
 						}
 						docCursor.destroy();
 						ResultSet lResult = search(lCon,lTable,fieldsMap);
@@ -617,7 +618,7 @@ public final class db
 	    			String lValue = (String) pValues.get(key);
 	    			if(!lWhereClause.equals(""))
 	    				lWhereClause = lWhereClause+" AND ";
-	    			lWhereClause = lWhereClause + key +"='"+lValue+"' ";
+	    				lWhereClause = lWhereClause + key +"='"+lValue+"' ";
 	    		}
 	        	sql = sql + (lWhereClause != null ? " WHERE " + lWhereClause : "");
 	        }

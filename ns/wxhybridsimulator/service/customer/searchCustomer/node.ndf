@@ -108,7 +108,7 @@
   </record>
   <value name="node_comment">Service that search for a customer
 
-Takes "customer" (as search object) as input and return customers ( and also rowsAffected which indicates how many rows that got read)</value>
+Takes "customer" (as search objectm with AND between) as input and return customers ( and also rowsAffected which indicates how many rows that got read)</value>
   <value name="stateless">yes</value>
   <value name="caching">no</value>
   <value name="prefetch">no</value>
