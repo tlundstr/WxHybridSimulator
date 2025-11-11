@@ -38,7 +38,7 @@
         <value name="is_global">false</value>
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">t2systemdemo.doc:inventory</value>
+        <value name="rec_ref">wxhybridsimulator.doc:inventory</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -87,7 +87,7 @@
         <value name="is_global">false</value>
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">t2systemdemo.doc:inventory</value>
+        <value name="rec_ref">wxhybridsimulator.doc:inventory</value>
       </record>
     </array>
     <value name="modifiable">true</value>
@@ -97,7 +97,7 @@
 
   <!-- nodes -->
 
-<MAPCOPY FROM="/sku;4;0;t2systemdemo.doc:inventory/ID;1;0" TO="/ID;1;0">
+<MAPCOPY FROM="/sku;4;0;wxhybridsimulator.doc:inventory/ID;1;0" TO="/ID;1;0">
 </MAPCOPY>
 </MAP>
 
@@ -400,7 +400,7 @@
         <value name="is_global">false</value>
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">t2systemdemo.doc:inventory</value>
+        <value name="rec_ref">wxhybridsimulator.doc:inventory</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -486,7 +486,7 @@
 </DATA>
 </MAPSET>
 
-<MAPCOPY FROM="/sku;4;0;t2systemdemo.doc:inventory" TO="/UPDATE;2;0/document;2;0">
+<MAPCOPY FROM="/sku;4;0;wxhybridsimulator.doc:inventory" TO="/UPDATE;2;0/document;2;0">
 </MAPCOPY>
 </MAP>
 
@@ -533,7 +533,7 @@
         <value name="is_global">false</value>
         <value name="rec_closed">true</value>
         <value name="modifiable">true</value>
-        <value name="rec_ref">t2systemdemo.doc:inventory</value>
+        <value name="rec_ref">wxhybridsimulator.doc:inventory</value>
       </record>
       <record javaclass="com.wm.util.Values">
         <value name="node_type">unknown</value>
@@ -734,7 +734,7 @@
 <MAPDELETE FIELD="/queryType;1;0">
 </MAPDELETE>
 
-<MAPDELETE FIELD="/sku;4;0;t2systemdemo.doc:inventory">
+<MAPDELETE FIELD="/sku;4;0;wxhybridsimulator.doc:inventory">
 </MAPDELETE>
 
 <MAPDELETE FIELD="/ID;1;0">

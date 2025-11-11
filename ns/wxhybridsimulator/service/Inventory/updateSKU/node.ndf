@@ -85,7 +85,11 @@
       <value name="modifiable">true</value>
     </record>
   </record>
-  <value name="node_comment"></value>
+  <value name="node_comment">Service that updates a SKU
+
+Takes "SKU" as input and return  rowsAffected which indicates how many rows that got stored
+
+NOTE: OPTIONAL FIELDS; THE DATABASE WILL CREATE FOR YOU (LIKE ID and TIMESTAMPS)</value>
   <value name="stateless">yes</value>
   <value name="caching">no</value>
   <value name="prefetch">no</value>
