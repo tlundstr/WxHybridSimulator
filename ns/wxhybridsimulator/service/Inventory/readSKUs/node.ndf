@@ -86,9 +86,9 @@
       <value name="modifiable">true</value>
     </record>
   </record>
-  <value name="node_comment">Service that reads all INVENTORY
+  <value name="node_comment">Service that reads all SKUS
 
-Takes nothing as input and return inventorys ( and also rowsAffected which indicates how many rows that got read)</value>
+Takes nothing as input and return SKUS ( and also rowsAffected which indicates how many rows that got read)</value>
   <value name="stateless">yes</value>
   <value name="caching">no</value>
   <value name="prefetch">no</value>

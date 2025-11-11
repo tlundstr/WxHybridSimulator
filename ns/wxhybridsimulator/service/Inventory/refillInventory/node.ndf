@@ -88,7 +88,7 @@
   </record>
   <value name="node_comment">This is a Quick service that can replenish the sent in SKU:s in the invetory...
 
-It takes the SKUS (lowstockskus) a number (timesReOrderLevel) and that is multiplied with the OrderLevel (for the SKU) and that get added to each SKU in DB.
+It takes the SKUS (lowstockskus) a number (timesReOrderLevel) and that is multiplied with the ReorderLevel (for the SKU) and that get added to each SKU in DB.
 </value>
   <value name="stateless">yes</value>
   <value name="caching">no</value>

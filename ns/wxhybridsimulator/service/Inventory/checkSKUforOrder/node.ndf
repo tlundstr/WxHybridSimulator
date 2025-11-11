@@ -127,7 +127,11 @@
       <value name="modifiable">true</value>
     </record>
   </record>
-  <value name="node_comment">This services will set the Order Status to Delivered and also reduce any SKU StockLevel by the number in the OrderRow</value>
+  <value name="node_comment">This services will check if a Order has all the OrderRows in stock
+
+It will split the order in two if it fins SKU:s not in stock
+
+The second Order (orderOutOfStock) can be used to create another order since it does not have an ID.</value>
   <value name="stateless">yes</value>
   <value name="caching">no</value>
   <value name="prefetch">no</value>

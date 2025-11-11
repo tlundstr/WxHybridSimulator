@@ -107,7 +107,9 @@
       <value name="modifiable">true</value>
     </record>
   </record>
-  <value name="node_comment">This services will set the Order Status (not in DB although) to Delivered and also reduce any SKU StockLevel by the number in the OrderRow</value>
+  <value name="node_comment">This services will set the Order Status (not in DB although) to Delivered and also reduce any SKU StockLevel by the number in the OrderRow
+
+If it finds SKUS that has StockLevel under the reorder_level will add that to a list so we can restock those.. </value>
   <value name="stateless">yes</value>
   <value name="caching">no</value>
   <value name="prefetch">no</value>
