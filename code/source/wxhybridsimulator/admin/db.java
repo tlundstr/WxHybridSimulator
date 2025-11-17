@@ -547,6 +547,7 @@ public final class db
 			    }//if else
 			}//for
 			lSql = lSql+")";
+			logMessage(pTable,"CREATE TABLE ", lSql, null);
 			return executeQuery(pConn, lSql);		
 	    }
 		    
@@ -557,11 +558,12 @@ public final class db
 	    }
 	
 	    public static ResultSet select(java.sql.Connection pConn,String pTable, String pWhereClause) throws SQLException {
-	    	String sql = "SELECT * FROM " + pTable;
+	    	String lSql = "SELECT * FROM " + pTable;
 	    	if( pWhereClause != null && !pWhereClause.equals("")){
-	        	sql = sql + (pWhereClause != null ? " WHERE " + pWhereClause : "");
+	    		lSql = lSql + (pWhereClause != null ? " WHERE " + pWhereClause : "");
 	        }
-	        return executeQuery(pConn, sql);
+	    	logMessage(pTable,"SELECT", lSql, null);
+	        return executeQuery(pConn, lSql);
 	    }
 	
 	    
@@ -569,8 +571,9 @@ public final class db
 	        int[] retvalue = new int[2];
 	    	String columns = String.join(", ", pValues.keySet());
 	        String placeholders = String.join(", ", Collections.nCopies(pValues.size(), "?"));
-	        String sql = "INSERT INTO " + pTable + " (" + columns + ") VALUES (" + placeholders + ")";
-	        try (PreparedStatement ps = pConn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+	        String lSql = "INSERT INTO " + pTable + " (" + columns + ") VALUES (" + placeholders + ")";
+	        logMessage(pTable,"INSERT","",pValues);
+	        try (PreparedStatement ps = pConn.prepareStatement(lSql, Statement.RETURN_GENERATED_KEYS)) {
 	            int i = 1;
 	            for (Object val : pValues.values()) {
 	                ps.setObject(i++, val);
@@ -582,15 +585,16 @@ public final class db
 	            	int generatedId = keys.getInt(1);
 	            	retvalue[1] = generatedId;
 	            }
+		        logMessage(pTable,"INSERT","CREATED ID:"+retvalue[1]+" ",pValues);
 	        }
 	        return retvalue;
 	    }
 	    
 	    public static int update(java.sql.Connection pConn,String pTable, Map<String, Object> pValues, String pWhereClause) throws SQLException {
 	        String setClause = String.join(", ", pValues.keySet().stream().map(k -> k + "=?").toList());
-	        String sql = "UPDATE " + pTable + " SET " + setClause + " WHERE " + pWhereClause;
-	        
-	        try (PreparedStatement ps = pConn.prepareStatement(sql)) {
+	        String lSql = "UPDATE " + pTable + " SET " + setClause + " WHERE " + pWhereClause;
+	        logMessage(pTable,"UPDATE",pWhereClause,pValues);
+	        try (PreparedStatement ps = pConn.prepareStatement(lSql)) {
 	            int i = 1;
 	            for (Object val : pValues.values()) {
 	                ps.setObject(i++, val);
@@ -600,17 +604,18 @@ public final class db
 	    }
 	    
 	    public static int delete(java.sql.Connection pConn, String pTable, String pWhereClause) throws SQLException {
-	    	String sql = "DELETE FROM " + pTable;
+	    	String lSql = "DELETE FROM " + pTable;
 	    	if( pWhereClause != null && !pWhereClause.equals("")){
-	        	sql = sql + (pWhereClause != null ? " WHERE " + pWhereClause : "");
+	    		lSql = lSql + (pWhereClause != null ? " WHERE " + pWhereClause : "");
 	        }
-	        try (PreparedStatement ps = pConn.prepareStatement(sql)) {
+	    	logMessage(pTable,"DELETE", pWhereClause, null);
+	        try (PreparedStatement ps = pConn.prepareStatement(lSql)) {
 	            return ps.executeUpdate();
 	        }
 	    }
 	
 	    public static ResultSet search(java.sql.Connection pConn,String pTable, Map<String, Object> pValues) throws SQLException {
-	    	String sql = "SELECT * FROM " + pTable;
+	    	String lSql = "SELECT * FROM " + pTable;
 	    	if( pValues != null && pValues.size() > 0){
 	    		String lWhereClause = "";
 	
@@ -620,9 +625,10 @@ public final class db
 	    				lWhereClause = lWhereClause+" AND ";
 	    				lWhereClause = lWhereClause + key +"='"+lValue+"' ";
 	    		}
-	        	sql = sql + (lWhereClause != null ? " WHERE " + lWhereClause : "");
+	    		lSql = lSql + (lWhereClause != null ? " WHERE " + lWhereClause : "");
 	        }
-	        return executeQuery(pConn, sql);
+	    	logMessage(pTable,"SEARCH", lSql, pValues);
+	        return executeQuery(pConn, lSql);
 	    }
 	
 	    public static String handleWhereClause(String pId,String pInputWhereClause){
@@ -668,6 +674,36 @@ public final class db
 			return lReturnList.toArray(DocumentList);
 	
 	    	
+	    }
+	    
+	    public static void logMessage(String pTable,String pQueryType, String pMessage, Map<String, Object> pValues){
+	    	String lcolValues = "";
+	    	if (pValues != null && pValues.size() > 0){
+	    		lcolValues = lcolValues+"( ";
+				for (Map.Entry<String, Object> entry : pValues.entrySet()) {
+				    String key = entry.getKey();
+				    Object value = entry.getValue();
+				    lcolValues = lcolValues+key+":"+String.valueOf(value)+" ";
+				}//for
+	    		lcolValues = lcolValues+")";
+				
+	    	}
+	    	
+	    	String lMessage = "WxHybridSimulator:"+pQueryType+":"+pTable+"-"+pMessage+"-"+lcolValues;	
+	    	
+	    	
+	    	// input
+	    	IData input = IDataFactory.create();
+	    	IDataCursor inputCursor = input.getCursor();
+	    	IDataUtil.put( inputCursor, "message", lMessage );
+	    	inputCursor.destroy();
+	
+	    	// output
+	    	IData 	output = IDataFactory.create();
+	    	try{
+	    		output = Service.doInvoke( "pub.flow", "debugLog", input );
+	    	}catch( Exception e){}
+	
 	    }
 	
 	    /*
