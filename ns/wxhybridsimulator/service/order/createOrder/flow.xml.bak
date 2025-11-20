@@ -1455,6 +1455,9 @@
 
 <MAPDELETE FIELD="/ORDERROWS;4;0;wxhybridsimulator.doc:orderrow/ID;1;0">
 </MAPDELETE>
+
+<MAPDELETE FIELD="/ORDERROWS;4;0;wxhybridsimulator.doc:orderrow/CREATED_AT;1;0">
+</MAPDELETE>
 </MAP>
 
 <INVOKE TIMEOUT="" SERVICE="wxhybridsimulator.admin.db:queryTable" VALIDATE-IN="$none" VALIDATE-OUT="$none">
