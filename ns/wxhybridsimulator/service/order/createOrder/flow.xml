@@ -105,6 +105,9 @@
 
 <MAPDELETE FIELD="/order;4;0;wxhybridsimulator.doc:order/ORDERROWS;4;1;wxhybridsimulator.doc:orderrow">
 </MAPDELETE>
+
+<MAPDELETE FIELD="/order;4;0;wxhybridsimulator.doc:order/ORDER_DATE;1;0">
+</MAPDELETE>
 </MAP>
 
 <INVOKE TIMEOUT="" SERVICE="wxhybridsimulator.service.order.rows:calculateTotal" VALIDATE-IN="$none" VALIDATE-OUT="$none">
@@ -1451,6 +1454,9 @@
 </MAPCOPY>
 
 <MAPDELETE FIELD="/ORDERROWS;4;0;wxhybridsimulator.doc:orderrow/ID;1;0">
+</MAPDELETE>
+
+<MAPDELETE FIELD="/ORDERROWS;4;0;wxhybridsimulator.doc:orderrow/CREATED_AT;1;0">
 </MAPDELETE>
 </MAP>
 
