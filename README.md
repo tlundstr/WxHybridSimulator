@@ -1,6 +1,4 @@
 # Package Name : WxHybridSimulator
-This is a webMethods package and requires a webMethods Integration Server to host it. Package versioning and configuration can be found in the package [manifest](./WxHybridSimulator/manifest.v3) file. Service and API documentation is available on the package's home page http://&lt;server&gt;:&lt;port&gt;/&lt;packagename>.
-
 The wxHybridSimulator is a webMethods Package that requires a Integration Server to host it. The package has been built to be used to simulate backend applications by using s a in-memory database (HyperSQL) which is wrapped within the packege using Java Services. There are a set of prebuilt Tables that gets created when the package startup ( like CUSTOMER, CUSTOMERORDER, ORDERROW, INVOICE, INVENTORY, EMAIL) and it also populate the customer table with three records (ID 1 to 3), only Customer 1 has records for the other tables. Key to understand is that anything that ends or are named ID or _ID are treated as INT and is also automatically created if not provided in the Create statement and this is also the same for any DATE fields ( so if you run create on some asset do not add ID or DATE).
 
 To see the documentation on this package, see the home page of the package which gives you documentation on each service
