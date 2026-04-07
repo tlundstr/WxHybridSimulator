@@ -6,7 +6,7 @@
   <!-- nodes -->
 
 <INVOKE TIMEOUT="" SERVICE="wxhybridsimulator.admin.db:queryTable" VALIDATE-IN="$none" VALIDATE-OUT="$none">
-  <COMMENT>Does a INSERT to CUSTOMER</COMMENT>
+  <COMMENT>Does a INSERT to Provided Table name</COMMENT>
 
   <!-- nodes -->
 

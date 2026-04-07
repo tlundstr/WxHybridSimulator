@@ -81,6 +81,7 @@ public final class db
 		String	lTableName = IDataUtil.getString( pipelineCursor, "tableName" );
 		IData	document = IDataUtil.getIData( pipelineCursor, "document" );
 		
+		
 		int lNumberOfRows = 0;
 		int lRecordId = 0;
 		
